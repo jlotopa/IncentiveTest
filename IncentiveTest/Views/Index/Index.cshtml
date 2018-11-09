@@ -1,0 +1,42 @@
+﻿@model IList<IncentiveTest.Models.Cliente>
+
+@Html.Partial("~/Views/Partial/Modal.cshtml")
+
+<table id="cliente" class="table">
+    <tr>
+        <th>
+            Código
+        </th>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Direccion
+        </th>
+        <th>
+            Comuna
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var cliente in Model)
+    {
+        <tr id="@cliente.Codigo.ToString()">
+            <td>
+                @Html.DisplayFor(model => cliente.Codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(model => cliente.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(model => cliente.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(model => cliente.Ciudad)
+            </td>
+            <td>
+                @Html.ActionLink("Detail", "Details", new { id = cliente.Codigo.ToString() }) |
+                <a id="Delete" href="javascript:void(0)">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
